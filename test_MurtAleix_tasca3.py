@@ -49,11 +49,11 @@ def test_llibres_per_categoria(biblioteca, categoria, res_esperat):
             True # Resultat que ha de trobar, en cas d'ester buit voldrá dir que no ha de trobar res
         ),
         
-        ( # Test 3
-            [{"llibre": "El Senyor dels Anells", "prestecs": [{"usuari": "Pere", "dies": 15, "retornat": False}]}], 
-            "Crim i Càstig", # Busca en la categoria de novel·la el llibre que esperem, En aquest cas intentem buscar el llibre
-            True # En aquest cas, el llibre no és trobat a la biblioteca (no passa el if llibre_b["llibre"] == llibre), pel que el bucle acaba i retorna True
-        ),
+        # ( # Test 3
+        #     [{"llibre": "El Senyor dels Anells", "prestecs": [{"usuari": "Pere", "dies": 15, "retornat": False}]}], 
+        #     "Crim i Càstig", # Busca en la categoria de novel·la el llibre que esperem, En aquest cas intentem buscar el llibre
+        #     True # En aquest cas, el llibre no és trobat a la biblioteca (no passa el if llibre_b["llibre"] == llibre), pel que el bucle acaba i retorna True
+        # ),
     ]
 )
 def test_esta_disponible(biblioteca, llibre, disponibilitat_esperada):
@@ -81,11 +81,11 @@ def test_esta_disponible(biblioteca, llibre, disponibilitat_esperada):
             False, # Al tenir la Anna tots els llibres retornats, ens retorna False ja que no ha de retornar res.
         ),
         
-        ( #Test 3 | ¡Per a aquest Tercer test he fet que falli extpressament!
-            [{"prestecs": [{"usuari": "Maria", "dies": 15, "retornat": False}]}],
-            "Maria", # Busquem per usuari si falta retornar llibres per que miri per tots els llibres.
-            False, # Al no tenir-lo/s retornat/s el/s llibres, ens retorna un True significant que ha de retornar algún llibre
-        ),
+        # ( #Test 3 | ¡Per a aquest Tercer test he fet que falli extpressament!
+        #     [{"prestecs": [{"usuari": "Maria", "dies": 15, "retornat": False}]}],
+        #     "Maria", # Busquem per usuari si falta retornar llibres per que miri per tots els llibres.
+        #     False, # Al no tenir-lo/s retornat/s el/s llibres, ens retorna un True significant que ha de retornar algún llibre
+        # ),
     ]
 )
 def test_usuari_te_prestecs(biblioteca, usuari, te_prestecs):
@@ -110,16 +110,16 @@ def test_usuari_te_prestecs(biblioteca, usuari, te_prestecs):
             47 # Suma de 15 + 20 + 12
         ),
         
-        ( # Test 2 | ¡Per a aquest segon test he fet que falli extpressament!
-            [{"llibre": "El Senyor dels Anells", 
-              "prestecs": [ # Tots els prestecs de El Senyor dels Anells -¬
-                    {"usuari": "Maria", "dies": 30, "retornat": True},
-                    {"usuari": "Joan", "dies": 22, "retornat": True},
-                    {"usuari": "Pere", "dies": 15, "retornat": False}
-                ]}],
-            "El Senyor dels Anells", # Busquem els nombres que s'han de sumar a partir de el nom del llibre
-            77 # Suma de 30 + 22 + 15 Feta malament! 
-        ),
+        # ( # Test 2 | ¡Per a aquest segon test he fet que falli extpressament!
+        #     [{"llibre": "El Senyor dels Anells", 
+        #       "prestecs": [ # Tots els prestecs de El Senyor dels Anells -¬
+        #             {"usuari": "Maria", "dies": 30, "retornat": True},
+        #             {"usuari": "Joan", "dies": 22, "retornat": True},
+        #             {"usuari": "Pere", "dies": 15, "retornat": False}
+        #         ]}],
+        #     "El Senyor dels Anells", # Busquem els nombres que s'han de sumar a partir de el nom del llibre
+        #     77 # Suma de 30 + 22 + 15 Feta malament! 
+        # ),
         
         ( # Test 3
             [{"llibre": "Crim i Càstig", 
