@@ -13,11 +13,11 @@ import pytest
             ['El Quixot', 'Crim i Càstig'] # Resultat que ha de trobar, en cas d'ester buit voldrá dir que no ha de trobar res
         ),
         
-        ( # Test 2 | ¡Per a aquest segon test he fet que falli extpressament!
-            [{"llibre": "1984", "categoria": "ciència-ficció"}], 
-            "fantasia", # Busca en la categoria de novel·la el llibre que esperem
-            ["1984"] # En aquest cas el resultat no será "1984" ja que està buscant en la categoria de fantasia, pel que no el trobarà i per aixó retorna un valor buit
-        ),
+        # ( # Test 2 | ¡Per a aquest segon test he fet que falli extpressament!
+        #     [{"llibre": "1984", "categoria": "ciència-ficció"}], 
+        #     "fantasia", # Busca en la categoria de novel·la el llibre que esperem
+        #     ["1984"] # En aquest cas el resultat no será "1984" ja que està buscant en la categoria de fantasia, pel que no el trobarà i per aixó retorna un valor buit
+        # ),
         
         ( # Test 3
             [{"llibre": "El Senyor dels Anells", "categoria": "fantasia"}], 
@@ -49,11 +49,11 @@ def test_llibres_per_categoria(biblioteca, categoria, res_esperat):
             True # Resultat que ha de trobar, en cas d'ester buit voldrá dir que no ha de trobar res
         ),
         
-        # ( # Test 3
-        #     [{"llibre": "El Senyor dels Anells", "prestecs": [{"usuari": "Pere", "dies": 15, "retornat": False}]}], 
-        #     "Crim i Càstig", # Busca en la categoria de novel·la el llibre que esperem, En aquest cas intentem buscar el llibre
-        #     True # En aquest cas, el llibre no és trobat a la biblioteca (no passa el if llibre_b["llibre"] == llibre), pel que el bucle acaba i retorna True
-        # ),
+        ( # Test 3
+            [{"llibre": "El Senyor dels Anells", "prestecs": [{"usuari": "Pere", "dies": 15, "retornat": False}]}], 
+            "Crim i Càstig", # Busca en la categoria de novel·la el llibre que esperem, En aquest cas intentem buscar el llibre
+            True # En aquest cas, el llibre no és trobat a la biblioteca (no passa el if llibre_b["llibre"] == llibre), pel que el bucle acaba i retorna True
+        ),
     ]
 )
 def test_esta_disponible(biblioteca, llibre, disponibilitat_esperada):
